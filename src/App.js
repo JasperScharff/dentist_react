@@ -9,6 +9,7 @@ import Home from "./Home";
 import generateRandomAppointments from "./utils";
 
 const appointments = generateRandomAppointments(70);
+// const myDentists = generateRandomDentists(4);
 
 const App = () => (
   <Router>
