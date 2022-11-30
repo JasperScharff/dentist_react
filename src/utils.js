@@ -1014,7 +1014,7 @@ const getRandomPatientName = () => {
   ];
 
   const randomEmailProvider = emailProviderOnEnd[Math.floor(Math.random() * 4)]
-  console.log(randomEmailProvider)
+  // console.log(randomEmailProvider)
 
 
 
@@ -1048,11 +1048,15 @@ const getRandomDentistName = () => {
   ];
 
   const randomEmailProvider = emailProviderOnEnd[Math.floor(Math.random() * 4)]
-  console.log(randomEmailProvider)
+  // console.log(randomEmailProvider)
 
+  const email = `E: ${denistName.surname}@${randomEmailProvider.mail}`
+  console.log(email)
 
-
-  return `${denistName.name} ${denistName.surname} met geboortedatum: ${birthYear} T: 06-${telNum} ` ;
+  return `${denistName.name} ${denistName.surname} 
+  met geboortedatum: ${birthYear} 
+  T: 06-${telNum} 
+  E: ${denistName.surname}@${randomEmailProvider.mail}` ;
 
 
 };
