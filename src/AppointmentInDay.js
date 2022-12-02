@@ -13,8 +13,8 @@ export default function AppointmentInDay({
       <div className="time">{format_time(time)}</div>
       <div className="patient">
       <b>Patient:</b> {patient.name} <br></br>
-        <b>Email: </b> {patient.email}
-        <br></br> <b>Telefoon: </b> {`06-${patient.telNum}`}
+        {/* <b>Email: </b> {patient.email}
+        <br></br> <b>Telefoon: </b> {`06-${patient.telNum}`} */}
       </div>
       <div className="dentist">
         <b>Tandarts:</b> {dentist.name} <br></br>

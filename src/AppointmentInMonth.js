@@ -6,7 +6,7 @@ export default function AppointmentInMonth({ time, patient }) {
   return (
     <div className="appointment">
       <span className="time">{format_time(time)}</span>
-      <span className="patient">{patient}</span>
+      <span className="patient">{patient.name} {patient}</span>
     </div>
   );
 };

@@ -997,7 +997,7 @@ const getRandomPatientName = () => {
   const min = 200;
   const max = 50;
   const person = patientGroup[Math.floor(Math.random() * (min, max + 1))];
-  
+
   const birthYear = Math.floor(Math.random() * (2022 - 1900 + 1)) + 1900;
   const telNum = Math.floor(Math.random() * 90000000) + 10000000; 
 
