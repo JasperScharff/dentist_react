@@ -1,7 +1,7 @@
 import React from "react";
 import AppointmentInMonth from "./AppointmentInMonth";
 
-export default ({ appointments }) => {
+export default function DayInMonth({ appointments }) {
   const appointmentsJSX = appointments.map(({ time, patient }, index) => (
     <AppointmentInMonth time={time} patient={patient} key={index} />
   ));

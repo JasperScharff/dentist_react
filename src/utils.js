@@ -997,11 +997,9 @@ const getRandomPatientName = () => {
   const min = 200;
   const max = 50;
   const person = patientGroup[Math.floor(Math.random() * (min, max + 1))];
-  // console.log("Random Patient Group: ", patientGroup[Math.floor(Math.random() * (min, max + 1))].name )
-  // console.log(person.name, person.surname)
+  
   const birthYear = Math.floor(Math.random() * (2022 - 1900 + 1)) + 1900;
-  // console.log(birthYear)
-  const telNum = Math.floor(Math.random() * 90000000) + 10000000;
+  const telNum = Math.floor(Math.random() * 90000000) + 10000000; 
 
   const emailProviderOnEnd = [
     { mail: "live.nl" },
@@ -1012,8 +1010,16 @@ const getRandomPatientName = () => {
 
   const randomEmailProvider = emailProviderOnEnd[Math.floor(Math.random() * 4)];
   // console.log(randomEmailProvider)
+  const name = `${person.name} ${person.surname}`; 
 
-  return `${person.name} ${person.surname} met geboortedatum: ${birthYear} T: 06-${telNum} E: ${person.surname}@${randomEmailProvider.mail}`;
+  const email = `${person.surname}@${randomEmailProvider.mail}`;
+
+  return {
+    name,
+    birthYear, 
+    telNum, 
+    email, 
+  }
 };
 
 /**
@@ -1023,7 +1029,7 @@ const getRandomPatientName = () => {
   Mitchel Gerritsen en 
   Harm van der Poel
  */
-const getRandomDentistName = () => {
+const getRandomDentistInfo = () => {
   const min = 0;
   const max = 3;
   const denistName = names[Math.floor(Math.random() * (min, max + 1))];
@@ -1043,14 +1049,13 @@ const getRandomDentistName = () => {
   const randomEmailProvider = emailProviderOnEnd[Math.floor(Math.random() * 4)];
   // console.log(randomEmailProvider)
   const name = `${denistName.name} ${denistName.surname}`; 
-  console.log(name)
 
   const email = `${denistName.surname}@${randomEmailProvider.mail}`;
   // console.log(email);
 
   // return `${denistName.name} ${denistName.surname} 
   // met geboortedatum: ${birthYear} 
-  // T: 06-${telNum} 
+  // T: 06-${telNum}
   // E: ${email}`;
 
   return {
@@ -1072,7 +1077,29 @@ const getRandomAssistantName = () => {
   const assistantName = names[Math.floor(Math.random() * (min, max + 1)) + min];
   // console.log("Random Assistant: Olaf en Sander:   ", names[Math.floor(Math.random() * (min, max + 1)) + min].name)
   // console.log(assistantName.name, assistantName.surname)
-  return `${assistantName.name} ${assistantName.surname}`;
+  const birthYear = Math.floor(Math.random() * (2022 - 1900 + 1)) + 1900;
+  // console.log(birthYear)
+  const telNum = Math.floor(Math.random() * 90000000) + 10000000;
+
+  const emailProviderOnEnd = [
+    { mail: "live.nl" },
+    { mail: "gmail.com" },
+    { mail: "yahoo.com" },
+    { mail: "xs4all.nl" },
+  ];
+
+  const randomEmailProvider = emailProviderOnEnd[Math.floor(Math.random() * 4)];
+  // console.log(randomEmailProvider)
+  const name = `${assistantName.name} ${assistantName.surname}`; 
+
+  const email = `${assistantName.surname}@${randomEmailProvider.mail}`;
+
+  return {
+    name,
+    birthYear, 
+    telNum, 
+    email, 
+  }
 };
 
 const getRandomTime = () => {
@@ -1091,9 +1118,12 @@ const generateRandomAppointment = () => ({
   day: getRandomDay(),
   time: getRandomTime(),
   patient: getRandomPatientName(),
-  dentist: getRandomDentistName(),
+  dentist: getRandomDentistInfo(),
   assistant: getRandomAssistantName(),
 });
+
+// Als iemand ziek is, gaat de afspraak niet door. 
+
 
 const generateRandomAppointments = (num) =>
   Array(num)
